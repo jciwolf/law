@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>代理商</title>
+	
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollablecombo.js"></script>
+	<script>
+		 $(function() {
+			$('.ui_element').scrollablecombo();
+		});
+	</script>
+</head>
+<body class="x-body">
+	<header class="x-header">
+		<div class="headerDIV">
+			<h1 class="x-logo"><img src="images/x_logo.png"></h1>
+			<div class="h-other">
+				<ul>
+					<li>欢迎回来，老王</li>
+					<li><a href="" class="a-info">个人资料</a></li>
+					<li><a href="" class="a-close">退出</a></li>	
+				</ul>
+			</div>
+		</div>
+	</header>
+
+	<section class="x-section">
+		<div class="list-nav">
+			<ul>
+				<li>公众号管理</li>
+				<li id="nac">代理商管理</li>
+				<li>商家管理</li>
+				<li>操作员管理</li>
+				<li>我的资料</li>
+			</ul>
+            <div class="clear"></div>
+		</div>
+		<div class="list-box">
+        	<h3 class="channel-path">当前位置：管理中心 > 代理商管理 </h3>
+            <!--条件查询 start-->
+            <div class="query-box">
+            <div class="query-boxL">
+            	<ul>
+            		<li><label for="">代理商名称：</label><span><input type="text" class="inpWidth150"></span></li>
+            		<li><label for="">有效时间：</label><span><input type="text" class="inpWidth120"> — <input type="text" class="inpWidth120"></span></li>
+            		<li>
+                        <label for="">启动状态：</label>
+                        <span class="inpWidth105">
+                            <select class="ui_element">
+                                <option value="A" selected>启用</option>
+                                <option value="B">图文型</option>
+                                <option value="C">文本型</option>
+                                <option value="D">停用</option>
+                            </select>
+                        </span>
+                    </li>
+            		<li id="list-box-bth" style="margin-top:10px;"><input type="button" value="搜索" class="x-green_but"></li>
+            	</ul>   
+            </div>
+            <div class="query-boxR">
+            	<a href=""><img src="images/add.png" alt="" align="absmiddle" style="margin-right:15px;">新增代理商</a>
+            </div>
+            <div class="clear"></div>
+            </div>
+            <!--条件查询 end-->
+            <div class="clear"></div>
+            <!--数据列表 start-->
+            <div class="list-table">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_gzh">
+              <tr>
+                <th width="8%"><label class="check-one"><input type="checkbox" align="absmiddle"><span>全选</span></label></th>
+                <th width="20%">代理商名称</th>
+                <th width="15%">开始时间</th>
+                <th width="15%">结束时间</th>
+                <th width="10%">启用状态</th>
+                <th width="32%">操作</th>
+              </tr>
+              <tr>
+                <td><label class="check-one"><input type="checkbox" checked><span>选择</span></label></td>
+                <td>非同小客</td>
+                <td>2013年10月1日</td>
+                <td>2013年10月1日</td>
+                <td>启用</td>
+                <td>
+                <span class="actionMenu">
+                	<a href="">修改</a>
+                    <a href="">关闭</a>
+                    <a href="">权限配置</a>
+                    <a href="">商家管理</a>
+                </span>
+                </td>
+              </tr>
+              <tr>
+                <td><label class="check-one"><input type="checkbox">&nbsp;</label></td>
+                <td>非同小客</td>
+                <td>2013年10月1日</td>
+                <td>2013年10月1日</td>
+                <td>关闭</td>
+                <td>
+                <span class="actionMenu">
+                	<a href="">修改</a>
+                    <a href="">启用</a>
+                    <a href="">删除</a>
+                    <a href="">权限配置</a>
+                    <a href="">商家管理</a>
+                </span>
+                </td>
+              </tr>
+              <tr>
+                <td><label class="check-one"><input type="checkbox">&nbsp;</label></td>
+                <td>非同小客</td>
+                <td>2013年10月1日</td>
+                <td>2013年10月1日</td>
+                <td>关闭</td>
+                <td>
+                <span class="actionMenu">
+                	<a href="">修改</a>
+                    <a href="">启用</a>
+                    <a href="">删除</a>
+                    <a href="">权限配置</a>
+                    <a href="">商家管理</a>
+                </span>
+                </td>
+              </tr>
+              <tr>
+                <th colspan="6" align="left">
+                    <ul class="list_bottom">
+                        <li class="fl li-first"><label class="check-one"><input type="checkbox" align="absmiddle"><span>全选</span></label></li>
+                        <li class="fl">
+                        	<span class="actionMenu">
+                                <a href="">批量启动</a>
+                                <a href="">批量关闭</a>
+                                <a href="">批量删除</a>
+                            </span>
+                        </li>
+                        <li class="fl li-three">
+                        	<a href=""><img src="images/first_page.png"></a>
+                            <a href=""><img src="images/back_page.png"></a>
+                            <span>第 <input type="text" class="inputstyle inpWidth40 ac"> 页</span>
+                            <a href=""><img src="images/next_page.png"></a>
+                            <a href=""><img src="images/last_page.png"></a>
+                        </li>
+                        <li class="fr li-last">显示 1 到 10 ，共 239 个项目</li>
+                    </ul>
+                </td>
+              </tr>
+            </table>
+	
+            <!--数据列表 end-->
+        </div>
+	</section>
+	
+</body>
+</html>

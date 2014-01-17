@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>X平台</title>
+	
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script>
+		 $(function() {
+			$(".cd_select").focus(function(){
+				$(this).next().show();
+			}).blur(function(){
+				$(this).next().hide();
+			});
+		});
+	</script>
+    <!--20131128 start-->
+    <script type="text/javascript">
+	$(document).ready(function(){
+									   
+		//When you click on a link with class of poplight and the href starts with a # 
+		$('.poplight[title^=#]').click(function() {
+			var popID = $(this).attr('data-reveal-id'); //Get Popup Name
+			var popURL = $(this).attr('title'); //Get Popup href to define size
+					
+			//Pull Query & Variables from href URL
+			var query= popURL.split('?');
+			var dim= query[1].split('&');
+			var popWidth = dim[0].split('=')[1]; //Gets the first query string value
+	
+			//Fade in the Popup and add close button
+			$('#' + popID).fadeIn().css({ 'width': Number( popWidth ) }).prepend('');
+			
+			//Define margin for center alignment (vertical + horizontal) - we add 80 to the height/width to accomodate for the padding + border width defined in the css
+			var popMargTop = ($('#' + popID).height() + 80) / 2;
+			var popMargLeft = ($('#' + popID).width() + 80) / 2;
+			
+			//Apply Margin to Popup
+			$('#' + popID).css({ 
+				'margin-top' : -popMargTop,
+				'margin-left' : -popMargLeft
+			});
+			
+			//Fade in Background
+			$('body').append('<div id="DIVgb"></div>'); //Add the fade layer to bottom of the body tag.
+			$('#DIVgb').css({'filter' : 'alpha(opacity=80)'}).fadeIn(); //Fade in the fade layer 
+			
+			return false;
+		});
+		
+		
+		//Close Popups and Fade Layer
+		$('input.close').live('click', function() { //When clicking on the close or fade layer...
+			$('#DIVgb , .mask-div , .mask-div600').fadeOut(function() {
+				$('#DIVgb, a.close').remove();  
+		}); //fade them both out
+			
+			return false;
+		});
+	
+		
+	});
+	</script>
+    <!--20131128 end-->
+</head>
+<body class="x-body">
+<div style="line-height:36px;">
+<a href="" title="#?w=500" data-reveal-id="batch_process" class="poplight">批量操作</a><br>
+<a href="" title="#?w=500" data-reveal-id="Secondary_keyword" class="poplight">次关键词</a><br>
+<a href="" title="#?w=600" data-reveal-id="modify_Public" class="poplight">修改公众号</a><br>
+<a href="" title="#?w=600" data-reveal-id="modify_Merchant" class="poplight">修改商户</a><br>
+
+</div>
+<!--批量操作 start-->
+<div class="mask-div" id="batch_process">
+	<h3>批量操作</h3>
+    <div class="warm">
+    <img src="images/warm.png">确定要批量启动码？
+    </div>
+    <div class="mask-input"><input type="button" value="确认" class="x-green_but"><input type="button" value="取消" class="gray_but close" title="Close Window" alt="Close"></div>
+</div>
+<!--批量操作 end-->
+<hr>
+<!--次关键词 start-->
+<div class="mask-div" id="Secondary_keyword">
+	<h3>次关键词</h3>
+    <div class="universal height40">
+        <ul>
+            <li>
+                <label for="">次关键词名称：</label>
+                <span>KTV欢唱</span>
+            </li>
+            <li>
+                <label for="">关键词类型：</label>
+                <span>文字型</span>
+            </li>
+            <li><label for="">次关键词：</label><span><textarea name="" cols="" rows="6" style="width:300px;" class="x-texttarea440" ></textarea><p class="x-dy" style="padding:0;" >*多个用“；”隔开</p></span></li>
+        </ul>
+    </div>
+    <div class="mask-input"><input type="button" value="确认" class="x-green_but"><input type="button" value="取消" class="gray_but close" title="Close Window" alt="Close"></div>
+</div>
+<!--次关键词 end-->
+<hr>
+<!--修改公众账号 start-->
+<div class="mask-div600" id="modify_Public">
+<h3>修改</h3>
+<!--基本信息添加 start-->
+<div class="universal_1">
+    <h4 class="path-H">基本信息：</h4>
+    <ul id="male">
+        <li><p>公众号名称：</p><span><input type="text" class="inpWidth160"></span></li>
+        <li><p>公众号原始ID：</p><span><input type="text" class="inpWidth160"></span><span class="a-x lh28"><a href="">获取方法</a></span></li>
+        <li><p>微信号：</p><span><input type="text" class="inpWidth160"></span></li>
+        <li id="kind">
+            <p>公众号类型：</p>
+            <span>
+                <input type="radio" id="key_writing" name="key" class="dn" value="writing">
+                <label name="key_writing" class="checked" for="key_writing" onclick="radio('kind')"> 订阅号</label>
+            </span>
+            <span>
+                <input type="radio" id="key_chart" name="key" class="dn" value="chart">
+                <label name="key_chart" class="" for="key_chart" onclick="radio('kind')"> 服务号</label>
+            </span>
+        </li>
+        <li id="WXpay">
+            <p>微信支付：</p>
+            <span>
+                <input type="radio" id="key_writing" name="key" class="dn" value="writing">
+                <label name="key_writing" class="checked" for="key_writing" onclick="radio('WXpay')"> 已开通</label>
+            </span>
+            <span>
+                <input type="radio" id="key_chart" name="key" class="dn" value="chart">
+                <label name="key_chart" class="" for="key_chart" onclick="radio('WXpay')"> 未开通</label>
+            </span>
+        </li>
+        <li><p>有效时间：</p><span><input type="text" class="inpWidth120 date-x"> — <input type="text" class="inpWidth120 date-x"></span></li>
+        <li>
+        <p>启动状态：</p>
+        <span class="inpWidth105">
+            <select class="ui_element">
+                <option value="A" selected>启用</option>
+                <option value="B">图文型</option>
+                <option value="C">文本型</option>
+                <option value="D">停用</option>
+            </select>
+        </span>
+        </li>
+    </ul>
+</div>
+<!--基本信息添加 end-->
+ <!--接口配置信息 start-->
+<div class="universal_1">
+    <h4 class="path-H">接口配置信息：</h4>
+    <ul>
+        <li><p>URL：</p><span class="lh28">www.gaopeng.com</span></li>
+        <li><p>Token：</p><span><input type="text" class="inpWidth160"></span></li>
+    </ul>
+</div>
+<!--接口配置信息 end-->
+<div class="x-bthDIV">
+<input type="button" value="保存" class="x-green_but">
+<input type="button" value="取消" class="gray_but close" title="Close Window" alt="Close">
+</div>
+</div>
+<!--修改公众账号 end-->
+<hr>
+<!--修改商户 start-->
+<div class="mask-div600" id="modify_Merchant">
+	<h3>修改</h3>
+    <!--商家添加 start-->
+    <div class="universal">
+        <ul>
+            <li><label for="">商家名称：</label><span><input type="text" class="inpWidth160"></span></li>
+            <li><label for="">联系人邮箱：</label><span><input type="text" class="inpWidth160"></span><span class="a-x"><a href="">获取方法</a></span></li>
+            <li><label for="">联系人手机号：</label><span><input type="text" class="inpWidth160"></span></li>
+            <li><label for="">联系人QQ号：</label><span><input type="text" class="inpWidth160"></span></li>
+            <li><label for="">密码：</label><span><input type="text" class="inpWidth160"></span></li>
+            <li><label for="">重复密码：</label><span><input type="text" class="inpWidth160"></span></li>
+            <li><label for="">有效时间：</label><span><input type="text" class="inpWidth120 date-x"> — <input type="text" class="inpWidth120 date-x"></span></li>
+            <li>
+            <label for="">启动状态：</label>
+            <span class="inpWidth105">
+                <select class="ui_element">
+                    <option value="A" selected>启用</option>
+                    <option value="B">图文型</option>
+                    <option value="C">文本型</option>
+                    <option value="D">停用</option>
+                </select>
+            </span>
+            </li>
+        </ul>
+    </div>
+    <!--商家添加 end-->
+    <div class="x-bthDIV">
+    <input type="button" value="保存" class="x-green_but">
+    <input type="button" value="取消" class="gray_but close" title="Close Window" alt="Close">
+    </div>
+</div>
+<!--修改商户 end-->
+</body>
+</html>

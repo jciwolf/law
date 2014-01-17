@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>X平台</title>
+	
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/radio.js"></script>
+</head>
+<body class="x-body">
+	<header class="x-header">
+		<div class="headerDIV">
+			<h1 class="x-logo"><img src="images/x_logo.png"></h1>
+			<div class="h-other">
+				<ul>
+					<li>欢迎回来，老王</li>
+					<li><a href="" class="a-info">个人资料</a></li>
+					<li><a href="" class="a-close">退出</a></li>	
+				</ul>
+			</div>
+		</div>
+	</header>
+
+	<div class="x-section section_box">
+    	<div class="x_aside">
+        	<div class="x_asideDIV">
+            	<div class="x-CustomerInformation">
+           	    	<img src="images/Picture-zgf.png" width="106" height="110"> 
+                	<p>真功夫连锁店<span class="green_498">【切换】</span></p>
+                </div>
+            	<dl class="x-menu-l">
+           	    <dt><span>基础回复</span></dt>
+                    <dd><span>关注回复</span></dd>
+                    <dd><span>默认回复</span></dd>
+                    <dt><span>自定义菜单</span></dt>
+                    <dd><span>自定义菜单</span></dd>
+                    <dt><span>关键词管理</span></dt>
+                    <dd class="cur"><span>新建关键词</span></dd>
+                    <dd><span>关键词列表</span></dd>
+                    <dt><span>用户回复消息</span></dt>
+                    <dd><span>用户回复消息列表</span></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="x_content" style="position:relative;">
+        	<h3 class="channel-path">当前位置：管理中心 > 真功夫连锁 > 关键词管理 > 新建关键词 </h3>
+            <h4 class="path-H">新建关键词：</h4>
+      		<div class="x-list-li x-l-p">
+                <ol id="male">
+                    <li>关键词名称：<span><input type="text" value="" class="inpWidth170" name="" id=""></span></li>
+                    <li id="key">关键词类型：
+						<span><input type="radio" id="key_writing" name="key" class="dn" value="writing"><label name="key_writing" class="checked" for="key_writing" onclick="radio('key')"> 文字型</label></span>
+						<span><input type="radio" id="key_chart" name="key" class="dn" value="chart"><label name="key_chart" class="" for="key_chart" onclick="radio('key')"> 文图型</label></span>
+					</li>
+					<li id="march">&nbsp;&nbsp;&nbsp;&nbsp;匹配类型：
+						<span><input type="radio" id="march_acc" name="march" checked="checked" class="dn" value="acc"><label name="march_acc" class="checked" for="march_acc" onclick="radio('march')"> 精确&nbsp;&nbsp;&nbsp;</label></span>
+						<span><input type="radio" id="march_fuzzy" name="march" class="dn" value="fuzzy"><label name="march_fuzzy" class="" for="march_fuzzy" onclick="radio('march')"> 模糊</label></span>
+						<a href="#" style="margin-left:40px;">不懂点我</a>
+					</li>
+					<li id="status">&nbsp;&nbsp;&nbsp;&nbsp;启用状态：
+						<span><input type="radio" id="status_enable" name="status" checked="checked" class="dn" value="enable"><label name="status_enable" class="checked" for="radio" onclick="settab('status')"> 启用&nbsp;&nbsp;&nbsp;</label></span>
+						<span><input type="radio" id="status_clock" name="status" class="dn" value="clock"><label name="status_clock" class="" for="status_clock" onclick="radio('status')"> 关闭</label></span>
+					</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;次关键词：<span><textarea name="" cols="" rows="6" class="x-texttarea440" ></textarea><p class="x-dy" >*多个用“；”隔开</p></span></li>
+                </ol>
+        	</div>
+			<div class="x-assistant">
+				<h5>小助手</h5>
+				<p>1、精确型即当用户回复的内容与关键词完全一致时，才下发该关键词的内容，否则下发默认回复的内容;<br>2、模糊型即当用户回复的内容包含关键词，则下发该关键词的内容；若用户回复的内容包含多个关键词，则下发最近保存的关键词内容。</p>
+				<div class="ac"><input type="button" value="知道了" class="x-green_but"></div>
+			</div>
+        	<div class="butbox"><input type="button" value="保存" class="x-green_but">&nbsp;&nbsp;&nbsp;<input type="button" value="取消" class="gray_but"></div>
+        </div>
+        <div class="clear"></div>
+	</div>
+	<footer></footer>
+	
+</body>
+</html>
