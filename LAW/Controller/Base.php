@@ -6,7 +6,7 @@
  * @date 2013.06.20
  */
 
-class XP_Controller_Base extends System_Lib_Controller
+class LAW_Controller_Base extends System_Lib_Controller
 {
 	protected $layoutName = 'XP_Layout_System';
 	protected $accountId;

@@ -1,8 +1,8 @@
 <?php
 
-class XP_Controller_Site extends XP_Controller_Base
+class LAW_Controller_Site extends System_Lib_Controller
 {
-    protected $layoutName = 'XP_Layout_Default';
+    protected $layoutName = 'LAW_Layout_Default';
 
 	public function logoutAction()
 	{

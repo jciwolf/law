@@ -4,7 +4,7 @@
  * Date: 12-9-23
  * Time: 下午2:01
  */
-class XP_Layout_Default extends System_Lib_Layout
+class LAW_Layout_Default extends System_Lib_Layout
 {
 	private $jsArr = array();
 	private $cssArr = array();
