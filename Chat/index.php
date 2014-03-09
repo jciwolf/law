@@ -84,15 +84,17 @@ $(document).ready(function(){
 	function loadLog(){		
 		var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20;
 		$.ajax({
-			url: "log.html",
+			url: "getMessage.php",
 			cache: false,
+            type:'POST',
+            data:{userName:'sdf'},
 			success: function(html){		
 				$("#chatbox").html(html); //Insert chat log into the #chatbox div				
 				var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20;
 				if(newscrollHeight > oldscrollHeight){
 					$("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
 				}				
-		  	},
+		  	}
 		});
 	}
 	setInterval (loadLog, 2500);	//Reload file every 2.5 seconds
