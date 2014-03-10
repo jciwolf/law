@@ -4,18 +4,17 @@ session_start();
 if(isset($_SESSION['name'])){
 	$text = $_POST['text'];
 	$name=$_SESSION['name'];
+	$type=$_POST["type"];
+	if(empty($type)) $type=1;
 
   $r=  DB::insert('messages',array(
         'userName'=>$name,
-        'hostName'=>"kdf",
-        'type'=>1,
-        'dateTime'=>date('Y-m-d H:m:s')
+        'hostName'=>"cao",
+        '`type`'=>$type,
+	    'message'=>$_POST["text"],
+        'dateTime'=>date('Y-m-d H:i:s')
     ));
 
 
-
-	//$fp = fopen("log.html", 'a');
-	//fwrite($fp, "<div class='msgln'>(".date("g:i A").") <b>".$_SESSION['name']."</b>: ".stripslashes(htmlspecialchars($text))."<br></div>");
-	//fclose($fp);
 }
 ?>

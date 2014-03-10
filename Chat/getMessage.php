@@ -9,13 +9,12 @@
 require_once 'db.php';
 if(!empty($_POST["userName"]))
 {
-    $r=DB::query("select * from messages where userName=%s",$_POST["userName"]);
+	$time=$_POST["d"];
+	if(empty($time)) $time='2000-10-10';
+    $r=DB::query("select * from messages where userName=%s and hostName=%s and  dateTime>%s order by dateTime",$_POST["userName"],$_POST["hostName"],$time);
     if(!empty($r))
     {
-        foreach ($r as $row) {
-            echo "Name: " . $row['dateTime'] . "\n";
-
-        }
+       echo json_encode($r);
     }
 }
 ?>
