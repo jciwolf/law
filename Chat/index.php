@@ -49,8 +49,7 @@ if(!isset($_SESSION['name'])){
 
 			//Load the file containing the chat log
 			function loadLog(){
-				var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20;
-
+				var oldscrollHeight = $("#chatbox").prop("scrollHeight") - 20;
 				$.ajax({
 					url: "getMessage.php",
 					cache: false,
@@ -65,10 +64,13 @@ if(!isset($_SESSION['name'])){
 							var h='<div class="msgln">'+data[i].dateTime+'<b>['+(data[i].type==1?data[i].userName:data[i].hostName)+'</b>]:'+data[i].message+'<br></div>';
 							latestTime=data[i].dateTime;
 							$("#chatbox").append(h);
-							PlaySound("sound1");
+							if(latestTime!="")
+								playSound('notify');
+
 						}
 
-						var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20;
+						var newscrollHeight = $("#chatbox").prop("scrollHeight") - 20;
+						console.log("old:"+oldscrollHeight+"new:"+newscrollHeight);
 						if(newscrollHeight > oldscrollHeight){
 							$("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
 						}
@@ -105,6 +107,7 @@ if(!isset($_SESSION['name'])){
 <?php
 
 ?>
-<embed src="notify.wav" autostart="false" width="0" height="0" id="sound1" enablejavascript="true">
+<button onclick="playSound('notify');">Play</button>
+<div id="sound"></div>
 </body>
 </html>
